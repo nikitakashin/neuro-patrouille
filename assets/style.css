@@ -283,3 +283,5 @@ tr:hover .badge{transform:scale(1.06) rotate(-2deg)}
 }
 
 [hidden]{display:none!important}
+.hero,.board{overflow-x:clip}
+html{overflow-x:clip}
