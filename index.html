@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Нейропатруль — какие локальные нейронки ЗБС, а какие ОПУЩЕНЫ</title>
+<meta name="description" content="Рубрика AI Native Сямыча: ставлю нейронки на свой MacBook, гоняю на реальных задачах и выношу вердикт. ЗБС или ОПУЩЕН. Таблица всех подопытных с замерами.">
+<meta name="theme-color" content="#070b1c">
+<link rel="canonical" href="https://nikitakashin.github.io/neuro-patrouille/">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Нейропатруль: ЗБС или ОПУЩЕН">
+<meta property="og:description" content="Тесты локальных нейронок на MacBook. Таблица подопытных с вердиктами и замерами.">
+<meta property="og:image" content="https://nikitakashin.github.io/neuro-patrouille/assets/og.png">
+<meta property="og:url" content="https://nikitakashin.github.io/neuro-patrouille/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&family=Unbounded:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="preload" as="image" href="assets/passed-face.webp" type="image/webp">
+</head>
+<body>
+<a class="skip" href="#table">К таблице</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-tg" viewBox="0 0 24 24"><path d="M21.6 3.4 2.9 10.6c-.9.4-.9 1.1-.2 1.3l4.7 1.5 1.8 5.5c.2.6.4.8.9.8.4 0 .6-.2.9-.4l2.3-2.2 4.7 3.5c.9.5 1.5.2 1.7-.8L23 4.7c.3-1.2-.4-1.7-1.4-1.3ZM9 13.6l9.3-5.9c.4-.3.8-.1.5.2l-7.6 6.9-.3 3.1L9 13.6Z"/></symbol>
+  <symbol id="i-yt" viewBox="0 0 24 24"><path d="M22.5 7.2a2.8 2.8 0 0 0-2-2C18.8 4.8 12 4.8 12 4.8s-6.8 0-8.5.4a2.8 2.8 0 0 0-2 2C1 8.9 1 12 1 12s0 3.1.5 4.8a2.8 2.8 0 0 0 2 2c1.7.4 8.5.4 8.5.4s6.8 0 8.5-.4a2.8 2.8 0 0 0 2-2c.5-1.7.5-4.8.5-4.8s0-3.1-.5-4.8ZM9.8 15.1V8.9l5.6 3.1-5.6 3.1Z"/></symbol>
+  <symbol id="i-gh" viewBox="0 0 24 24"><path d="M12 1.5a10.5 10.5 0 0 0-3.3 20.5c.5.1.7-.2.7-.5v-1.9c-2.9.6-3.5-1.4-3.5-1.4-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.6 1.1 1.6 1.1.9 1.6 2.4 1.1 3 .9.1-.7.4-1.1.6-1.4-2.3-.3-4.8-1.2-4.8-5.2 0-1.1.4-2.1 1.1-2.8-.1-.3-.5-1.3.1-2.8 0 0 .9-.3 2.9 1.1a10 10 0 0 1 5.2 0c2-1.4 2.9-1.1 2.9-1.1.6 1.5.2 2.5.1 2.8.7.7 1.1 1.7 1.1 2.8 0 4-2.5 4.9-4.8 5.2.4.3.7 1 .7 2v2.9c0 .3.2.6.7.5A10.5 10.5 0 0 0 12 1.5Z"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-sort" viewBox="0 0 24 24"><path d="m8 9 4-4 4 4M8 15l4 4 4-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="m16 16 4.5 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+</svg>
+
+<header class="top">
+  <div class="wrap top__in">
+    <a class="brand" href="#top" aria-label="Нейропатруль, наверх">
+      <span class="brand__dot" aria-hidden="true"></span>Нейропатруль
+    </a>
+    <nav class="nav" aria-label="Разделы">
+      <a href="#table">Таблица</a>
+      <a href="#how">Как проверяю</a>
+      <a href="#join">Подписка</a>
+    </nav>
+    <div class="top__cta">
+      <a class="btn btn--tg btn--sm" href="https://t.me/syamich3912" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-tg"/></svg><span>Telegram</span></a>
+      <a class="btn btn--yt btn--sm" href="https://www.youtube.com/@privichka_sozdavat" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-yt"/></svg><span>YouTube</span></a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero__in">
+      <div class="hero__text">
+        <p class="eyebrow">Рубрика канала AI Native Сямыч</p>
+        <h1 class="h1">Нейро<wbr>патруль</h1>
+        <p class="lead">Ставлю нейронки прямо на свой MacBook и гоняю на живых задачах, без рекламных графиков. После теста выношу вердикт: <b class="ok">ЗБС</b> или <b class="bad">ОПУЩЕН</b>. Все подопытные и замеры лежат ниже в таблице.</p>
+        <div class="hero__cta">
+          <a class="btn btn--yt" href="https://www.youtube.com/@privichka_sozdavat?sub_confirmation=1" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-yt"/></svg>Подписаться на YouTube</a>
+          <a class="btn btn--tg" href="https://t.me/syamich3912" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-tg"/></svg>Telegram</a>
+          <a class="btn btn--ghost" href="#table">Таблица подопытных<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+        <dl class="stats" id="stats" aria-label="Сводка"></dl>
+      </div>
+      <div class="hero__cards" aria-label="Два возможных вердикта">
+        <figure class="plaque plaque--ok"><img src="assets/passed-face.webp" width="900" height="414" alt="Нейропатруль пройден: ЗБС. Лайк"></figure>
+        <figure class="plaque plaque--bad"><img src="assets/failed-face.webp" width="900" height="427" alt="Нейропатруль не пройден: ОПУЩЕН. Дизлайк"></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="how">
+    <div class="wrap">
+      <h2 class="h2">Как проверяю</h2>
+      <ol class="steps">
+        <li><span class="steps__n">1</span><h3>Свой Мак</h3><p>MacBook M5 Pro, 24 ГБ. Не сервер и не видеокарта за 2000 долларов. Если не влезло, так и пишу.</p></li>
+        <li><span class="steps__n">2</span><h3>Живая задача</h3><p>Не «hello world», а работа: код, монтаж шортса, озвучка, чистка голоса. Скорость и память беру из окна, не из презентации.</p></li>
+        <li><span class="steps__n">3</span><h3>Вердикт</h3><p>Покажу лайк: «Нейропатруль пройден, ЗБС». Дизлайк: «не пройден, ОПУЩЕН». Пока тест не закончен, стоит «в процессе».</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="sec" id="table" aria-labelledby="t-h">
+    <div class="wrap">
+      <div class="sec__head">
+        <h2 class="h2" id="t-h">Подопытные</h2>
+        <p class="muted" id="updated"></p>
+      </div>
+
+      <div class="tools">
+        <div class="chips" role="group" aria-label="Фильтр по вердикту" id="chips"></div>
+        <div class="tools__right">
+          <label class="search"><svg aria-hidden="true"><use href="#i-search"/></svg><span class="sr">Поиск по названию</span><input type="search" id="q" placeholder="Найти нейронку" autocomplete="off"></label>
+          <label class="sortsel"><span class="sr">Сортировка</span>
+            <select id="sortsel">
+              <option value="date:desc">Сначала новые</option>
+              <option value="date:asc">Сначала старые</option>
+              <option value="name:asc">По названию</option>
+              <option value="verdict:asc">По вердикту</option>
+              <option value="speed:desc">Быстрее сверху</option>
+              <option value="size:asc">Меньше сверху</option>
+            </select>
+          </label>
+        </div>
+      </div>
+
+      <p class="sr" aria-live="polite" id="live"></p>
+      <div class="board" id="board">
+        <table class="grid" id="grid">
+          <caption class="sr">Таблица подопытных нейронок с вердиктами и замерами</caption>
+          <thead>
+            <tr>
+              <th scope="col" data-key="name" aria-sort="none"><button type="button" class="th">Подопытный<svg aria-hidden="true"><use href="#i-sort"/></svg></button></th>
+              <th scope="col" data-key="size" aria-sort="none"><button type="button" class="th">Размер<svg aria-hidden="true"><use href="#i-sort"/></svg></button></th>
+              <th scope="col"><span class="th">Чем запускал</span></th>
+              <th scope="col" data-key="speed" aria-sort="none"><button type="button" class="th">Скорость<svg aria-hidden="true"><use href="#i-sort"/></svg></button></th>
+              <th scope="col"><span class="th">Память</span></th>
+              <th scope="col"><span class="th">Что тестировал</span></th>
+              <th scope="col" data-key="verdict" aria-sort="none"><button type="button" class="th">Вердикт<svg aria-hidden="true"><use href="#i-sort"/></svg></button></th>
+              <th scope="col"><span class="th">Комментарий</span></th>
+            </tr>
+          </thead>
+          <tbody id="rows"></tbody>
+        </table>
+        <p class="empty" id="empty" hidden>Тут пусто. Сбрось фильтр или поищи иначе.</p>
+        <p class="empty" id="err" hidden>Не получилось загрузить <code>data/subjects.json</code>. Если открыл файл с диска, запусти <code>python3 -m http.server</code> в папке сайта.</p>
+      </div>
+      <noscript><p class="empty">Таблица строится скриптом из <code>data/subjects.json</code>. Включи JavaScript.</p></noscript>
+      <p class="note">Замеры мои, на моём Маке и на один день. У тебя может выйти иначе, особенно с другой памятью. «—» значит, что я это не мерил.</p>
+    </div>
+  </section>
+
+  <section class="sec join" id="join">
+    <div class="wrap">
+      <div class="join__box">
+        <div>
+          <h2 class="h2">Следующий подопытный уже в очереди</h2>
+          <p class="lead">Подписывайся, чтобы не пропустить новый вердикт. В Telegram пишу, что ставить следующим, и принимаю заявки на проверку.</p>
+        </div>
+        <div class="join__cta">
+          <a class="btn btn--yt btn--lg" href="https://www.youtube.com/@privichka_sozdavat?sub_confirmation=1" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-yt"/></svg>Подписаться на YouTube</a>
+          <a class="btn btn--tg btn--lg" href="https://t.me/syamich3912" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-tg"/></svg>Написать в Telegram</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__in">
+    <div>
+      <p class="foot__brand">Нейропатруль</p>
+      <p class="muted">Рубрика канала AI Native Сямыч. Тесты локальных нейронок на MacBook.</p>
+    </div>
+    <nav class="foot__links" aria-label="Ссылки">
+      <a href="https://t.me/syamich3912" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-tg"/></svg>Telegram</a>
+      <a href="https://www.youtube.com/@privichka_sozdavat" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-yt"/></svg>YouTube</a>
+      <a href="https://github.com/nikitakashin" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-gh"/></svg>GitHub</a>
+    </nav>
+  </div>
+</footer>
+
+<div class="fab" id="fab" aria-label="Быстрые ссылки">
+  <a class="fab__b fab__b--tg" href="https://t.me/syamich3912" target="_blank" rel="noopener" aria-label="Telegram"><svg aria-hidden="true"><use href="#i-tg"/></svg></a>
+  <a class="fab__b fab__b--yt" href="https://www.youtube.com/@privichka_sozdavat?sub_confirmation=1" target="_blank" rel="noopener" aria-label="Подписаться на YouTube"><svg aria-hidden="true"><use href="#i-yt"/></svg></a>
+</div>
+
+<script src="assets/app.js" defer></script>
+</body>
+</html>
