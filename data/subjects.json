@@ -71,23 +71,6 @@
       "episode": "https://www.youtube.com/shorts/A8MaFPw2ia0"
     },
     {
-      "id": "local-tts",
-      "name": "local-tts: Silero, Piper, RHVoice, Kokoro",
-      "vendor": "мой набор локальных голосов, клон голоса по 20 секундам",
-      "version": "—",
-      "size": "—",
-      "size_gb": null,
-      "runtime": "ltts, всё офлайн на маке",
-      "speed": "—",
-      "speed_tps": null,
-      "memory": "—",
-      "test": "Озвучка роликов и шортсов",
-      "verdict": "zbs",
-      "comment": "Озвучиваю им сам, бесплатно и без интернета. Голос Haiku в ролике про пальцы это он. Замеров по каждому голосу пока нет.",
-      "tested": null,
-      "episode": null
-    },
-    {
       "id": "qwen-image-21",
       "name": "Qwen Image 2.1",
       "vendor": "Qwen · без цензуры",
