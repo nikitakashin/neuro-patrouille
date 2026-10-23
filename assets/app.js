@@ -4,6 +4,7 @@
 
   const TG = 'https://t.me/syamich3912';
   const YT = 'https://www.youtube.com/@privichka_sozdavat';
+  const SHOW = 'https://www.youtube.com/playlist?list=PLa-4t4jKv26Y';  // плейлист «Нейропатруль — шоу»
   const V = {
     zbs:  { label: 'ЗБС',        rank: 0, img: 'assets/passed.webp', alt: 'Нейропатруль пройден: ЗБС' },
     fail: { label: 'ОПУЩЕН',     rank: 1, img: 'assets/failed.webp', alt: 'Нейропатруль не пройден: ОПУЩЕН' },
@@ -93,9 +94,9 @@
     const links = el('div', 'links');
     const ep = document.createElement('a');
     ep.className = 'lnk lnk--yt'; ep.target = '_blank'; ep.rel = 'noopener';
-    ep.append(icon('i-yt'), document.createTextNode(s.episode ? 'Смотреть выпуск' : 'Выпуск на канале'));
-    ep.href = s.episode || YT;
-    ep.setAttribute('aria-label', (s.episode ? 'Смотреть выпуск про ' : 'Канал на YouTube: ') + s.name);
+    ep.append(icon('i-yt'), document.createTextNode(s.episode ? 'Смотреть выпуск' : 'Все выпуски'));
+    ep.href = s.episode || SHOW;
+    ep.setAttribute('aria-label', (s.episode ? 'Смотреть выпуск про ' : 'Все выпуски Нейропатруля, ') + s.name);
     const tg = document.createElement('a');
     tg.className = 'lnk lnk--tg'; tg.href = TG; tg.target = '_blank'; tg.rel = 'noopener';
     tg.append(icon('i-tg'), document.createTextNode('Обсудить'));
